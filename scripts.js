@@ -10,11 +10,19 @@ const customHeader = (scrollPoint) =>{
   }
   const mobileButton = document.querySelector(".header__mobile-button");
   const mobileMenu = document.querySelector(".header ul");
+  const links = mobileMenu.querySelectorAll("a");
   
   mobileButton.addEventListener("click", () => {
     mobileButton.classList.toggle("active");
     mobileMenu.classList.toggle("active");
   });
+  
+  links.forEach(link=>{
+    link.addEventListener("click",()=>{
+      mobileButton.classList.remove("active");
+      mobileMenu.classList.remove("active");
+    })
+  })
   
   const headerBlack = document.querySelector(".header__black");
   const scrollElement = document.getElementById(scrollPoint)
